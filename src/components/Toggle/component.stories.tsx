@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import BBBToggle from './component';
 import { TEXT_POSITIONS_VALUES, DEFAULT_TEXT_POSITION } from './constants';
@@ -12,6 +13,11 @@ const meta = {
       options: TEXT_POSITIONS_VALUES,
       description: 'Position of label/helper relative to the toggle.',
       table: { defaultValue: { summary: `${DEFAULT_TEXT_POSITION}` } },
+    },
+    fullWidth: {
+      control: 'boolean',
+      description: `Stretches the row to its container, with the label at the start and the switch at the end. Only used with textPosition 'left'.`,
+      table: { defaultValue: { summary: 'false' } },
     },
     label: {
       control: 'text',
@@ -43,3 +49,17 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = { args: { label: 'Enable feature' } };
 /** Adds helper text below the label, with the label/helper positioned to the right of the toggle. */
 export const WithHelper: Story = { args: { label: 'Enable', helperText: 'Recommended', textPosition: 'right' } };
+/** Shows a `fullWidth` toggle in a settings row: label and helper text at the start, switch at the end. */
+export const FullWidth: Story = {
+  args: {
+    label: 'Join muted',
+    helperText: 'Joining users are muted by default',
+    textPosition: 'left',
+    fullWidth: true,
+  },
+  render: (args) => (
+    <div style={{ width: '24rem' }}>
+      <BBBToggle {...args} />
+    </div>
+  ),
+};

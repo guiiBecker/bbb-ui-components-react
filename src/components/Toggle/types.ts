@@ -7,6 +7,7 @@ export type LabelPlacement = 'top' | 'bottom' | 'start' | 'end';
 
 export interface StyledToggleWrapperProps {
   $textPosition: LayoutType;
+  $fullWidth: boolean;
 }
 
 export interface StyledTextWrapperProps extends StyledToggleWrapperProps{
@@ -23,6 +24,9 @@ export interface ToggleProps extends Omit<SwitchProps, 'inputProps'> {
 
   /** Position of the label/helper text relative to the toggle. @default 'right' */
   textPosition?: LayoutType;
+
+  /** Stretches the row to its container, with the label at the start and the switch at the end; only used with `textPosition` 'left'. @default false */
+  fullWidth?: boolean;
 
   /** Accessible name for the toggle. */
   ariaLabel?: string;
