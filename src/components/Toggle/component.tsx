@@ -28,7 +28,7 @@ function Toggle ({
   const id = providedId ?? generatedUniqueId;
   const labelId = label ? `${id}-label` : undefined;
   const helperTextId = helperText ? `${id}-helper` : undefined;
-  const isFullWidth = fullWidth && textPosition === TEXT_POSITIONS.LEFT;
+  const isFullWidth = fullWidth && (textPosition === TEXT_POSITIONS.LEFT || textPosition === TEXT_POSITIONS.RIGHT);
 
   const ariaLabelledByValue = ariaLabel ? undefined : ariaLabelledBy || labelId;
   // Without a name source, the <label htmlFor> names the input from the helper text,

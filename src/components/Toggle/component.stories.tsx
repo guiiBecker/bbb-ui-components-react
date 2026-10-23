@@ -16,7 +16,7 @@ const meta = {
     },
     fullWidth: {
       control: 'boolean',
-      description: `Stretches the row to its container, with the label at the start and the switch at the end. Only used with textPosition 'left'.`,
+      description: `Stretches the row to its container, putting the text and the switch at opposite ends. Only used with textPosition 'left' or 'right'.`,
       table: { defaultValue: { summary: 'false' } },
     },
     label: {
@@ -62,4 +62,9 @@ export const FullWidth: Story = {
       <BBBToggle {...args} />
     </div>
   ),
+};
+/** Shows a `fullWidth` toggle with the text on the right: switch at the start, label and helper text at the end. */
+export const FullWidthTextRight: Story = {
+  ...FullWidth,
+  args: { ...FullWidth.args, textPosition: 'right' },
 };

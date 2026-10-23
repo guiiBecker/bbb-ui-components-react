@@ -61,6 +61,13 @@ export const TextWrapper = styled.label<StyledTextWrapperProps>`
         align-items: center;
       `;
     }
+    // A full-width row aligns the text to the container's edge; otherwise it hugs the switch.
+    if ($fullWidth && $textPosition === TEXT_POSITIONS.RIGHT) {
+      return css`
+        align-items: end;
+        text-align: end;
+      `;
+    }
     if ($textPosition === TEXT_POSITIONS.LEFT && !$fullWidth) return css`align-items: end;`;
 
     return css`
